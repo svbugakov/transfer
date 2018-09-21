@@ -1,19 +1,28 @@
 apply plugin: 'war'
 apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
+
+
+
 repositories {
     jcenter()
     mavenLocal()
     mavenCentral()
 }
 
+
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile "javax.ws.rs:jsr311-api:1.1.1"
+    compile  "com.sun.jersey:jersey-core:1.13"
+    compile  "com.sun.jersey:jersey-server:1.13"
+    compile "com.sun.jersey:jersey-servlet:1.13"
     testCompile 'junit:junit:4.12'
 }
 
 gretty {
-    contextPath = '/hello'
+    httpPort = 8084
+    contextPath = '/'
 }
 
 

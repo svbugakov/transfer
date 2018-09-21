@@ -17,6 +17,7 @@ dependencies {
     compile  "com.sun.jersey:jersey-core:1.13"
     compile  "com.sun.jersey:jersey-server:1.13"
     compile "com.sun.jersey:jersey-servlet:1.13"
+    compile "com.sun.jersey.contribs:jersey-guice:1.13"
     testCompile 'junit:junit:4.12'
 }
 

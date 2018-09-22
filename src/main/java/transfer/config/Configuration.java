@@ -15,6 +15,7 @@ import transfer.db.DaoAccount;
 import transfer.db.DaoAccountImpl;
 import transfer.db.H2DataSourceProvider;
 
+
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -31,6 +32,7 @@ public class Configuration extends GuiceServletContextListener {
                 bindConstant().annotatedWith(Names.named("red")).to("Ivan good");
 
                 Names.bindProperties(binder(), loadProperties());
+
                 bind(DataSource.class).toProvider(H2DataSourceProvider.class)
                         .in(Scopes.SINGLETON);
 
@@ -48,10 +50,10 @@ public class Configuration extends GuiceServletContextListener {
 
     private Properties loadProperties() {
         Properties prop = new Properties();
-        prop.setProperty("url","jdbc:h2:mem:testdb");
-       // prop.setProperty("driverClassName","org.h2.Driver");
-        prop.setProperty("username","sa");
-        prop.setProperty("password","");
+        prop.setProperty("url", "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;" +
+                "INIT=RUNSCRIPT FROM 'create.sql'");
+        prop.setProperty("username", "sa");
+        prop.setProperty("password", "");
         return prop;
     }
 }

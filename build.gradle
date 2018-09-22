@@ -1,9 +1,6 @@
 apply plugin: 'war'
 apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
-
-
-
 repositories {
     jcenter()
     mavenLocal()
@@ -14,10 +11,11 @@ repositories {
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile "javax.ws.rs:jsr311-api:1.1.1"
-    compile  "com.sun.jersey:jersey-core:1.13"
-    compile  "com.sun.jersey:jersey-server:1.13"
-    compile "com.sun.jersey:jersey-servlet:1.13"
-    compile "com.sun.jersey.contribs:jersey-guice:1.13"
+    compile  "com.sun.jersey:jersey-core:1.19.4"
+    compile  "com.sun.jersey:jersey-server:1.19.4"
+    compile "com.sun.jersey:jersey-servlet:1.19.4"
+    compile "com.sun.jersey.contribs:jersey-guice:1.19.4"
+    compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.19.4'
     compile group: 'com.h2database', name: 'h2', version: '1.4.191'
     testCompile 'junit:junit:4.12'
 }

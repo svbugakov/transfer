@@ -4,8 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import transfer.db.DaoAccount;
 import transfer.model.Account;
-import transfer.service.ErrorResponse;
-import transfer.service.OperTransAccounts;
+import transfer.model.Result;
 import transfer.service.TransferResponse;
 
 
@@ -13,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Path("/account")
@@ -56,10 +56,12 @@ public class TransferAccount {
     @Path("/transfer")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response transferSumBetweenAccount(OperTransAccounts oper) {
-        System.out.println("Start upd account from = " + oper.getFrom() + " on sum = " + oper.getSum());
-        Account accountFrom = daoAccount.getAccount(oper.getFrom());
-        Account accountTo = daoAccount.getAccount(oper.getTo());
+    public Response transferSumBetweenAccount(@FormParam("from") String from,
+                                              @FormParam("to") String to,
+                                              @FormParam("sum") BigDecimal sum) {
+        System.out.println("Start upd account from = " + from + " on sum = " + sum);
+        Account accountFrom = daoAccount.getAccount(from);
+        Account accountTo = daoAccount.getAccount(to);
 
         if (accountFrom == null) {
             return new TransferResponse<Account>(accountFrom, "account From no found in base",
@@ -69,7 +71,7 @@ public class TransferAccount {
             return new TransferResponse<Account>(accountFrom, "account To no found in base",
                     Status.NOT_FOUND).getResponse();
         }
-        daoAccount.transferSum(oper);
-        return Response.ok(oper.getResult(), MediaType.APPLICATION_JSON).build();
+        Result result = daoAccount.transferSum(accountFrom , accountTo, sum);
+        return Response.ok(result.getMessage(), MediaType.APPLICATION_JSON).build();
     }
 }

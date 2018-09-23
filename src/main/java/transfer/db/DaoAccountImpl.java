@@ -2,7 +2,7 @@ package transfer.db;
 
 import com.google.inject.Inject;
 import transfer.model.Account;
-import transfer.service.OperTransAccounts;
+import transfer.model.Result;
 
 import javax.sql.DataSource;
 import java.math.BigDecimal;
@@ -91,19 +91,20 @@ public class DaoAccountImpl implements DaoAccount {
     }
 
     @Override
-    public void transferSum(OperTransAccounts oper) {
+    public Result transferSum(Account from, Account to, BigDecimal sum) {
         Account account = null;
         final String SQL = "update account a set a.bal = a.bal + ? where acc = ?";
+        Result result = new Result();
 
         try (Connection con = dataSource.getConnection()) {
             try (PreparedStatement st = con.prepareStatement(SQL)) {
                 con.setAutoCommit(false);
                 con.setTransactionIsolation(TRANSACTION_READ_COMMITTED);
-                st.setBigDecimal(1, oper.getSum().negate());
-                st.setString(2, oper.getFrom());
+                st.setBigDecimal(1, sum.negate());
+                st.setString(2, from.getAcc());
                 st.executeUpdate();
-                st.setBigDecimal(1, oper.getSum());
-                st.setString(2, oper.getTo());
+                st.setBigDecimal(1, sum);
+                st.setString(2, to.getAcc());
                 st.executeUpdate();
                 System.out.println("update  rows");
                 con.commit();
@@ -117,10 +118,12 @@ public class DaoAccountImpl implements DaoAccount {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return;
+            result.setMessage("Error " + e.getMessage());
+            return result;
         }
 
-        oper.setResult(String.format("Money transferred from the account %s to %s successfully",
-                oper.getFrom(), oper.getTo()));
+        result.setMessage(String.format("Money transferred from the account %s to %s successfully",
+                from.getAcc(), to.getAcc()));
+        return result;
     }
 }

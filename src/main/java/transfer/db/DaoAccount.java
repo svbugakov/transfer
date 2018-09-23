@@ -1,7 +1,7 @@
 package transfer.db;
 
 import transfer.model.Account;
-import transfer.service.OperTransAccounts;
+import transfer.model.Result;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,5 +14,5 @@ public interface DaoAccount {
 
     Account getAccount(String acc);
 
-    void transferSum(OperTransAccounts oper);
+    Result transferSum(Account from, Account to, BigDecimal sum);
 }

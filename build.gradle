@@ -16,6 +16,7 @@ dependencies {
     compile "com.sun.jersey:jersey-servlet:1.19.4"
     compile "com.sun.jersey.contribs:jersey-guice:1.19.4"
     compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.19.4'
+    compile "com.sun.jersey:jersey-client:1.19.4"
     compile group: 'com.h2database', name: 'h2', version: '1.4.191'
     testCompile 'junit:junit:4.12'
 }

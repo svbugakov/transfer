@@ -8,4 +8,5 @@ import java.util.List;
 public interface DaoAccount {
     BigDecimal getBalance();
     List<Account> getAccounts();
+    Account getAccount(String acc);
 }

@@ -6,6 +6,7 @@ import transfer.model.Account;
 import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -60,5 +61,29 @@ public class DaoAccountImpl implements DaoAccount {
             e.printStackTrace();
         }
         return accounts;
+    }
+
+    @Override
+    public Account getAccount(String acc) {
+        Account account = null;
+        final String SQL = "select a.acc, " +
+                "a.bal " +
+                "from account a where acc = ?";
+
+        try (Connection con = dataSource.getConnection();
+             PreparedStatement st = con.prepareStatement(SQL);
+        ) {
+            st.setString(1, acc);
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    account = new Account();
+                    account.setAcc(rs.getString(1));
+                    account.setBalance(rs.getBigDecimal(2));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return account;
     }
 }

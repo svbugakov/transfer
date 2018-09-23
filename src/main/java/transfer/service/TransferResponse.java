@@ -6,17 +6,19 @@ import javax.ws.rs.core.Response;
 public class TransferResponse<T> {
     private T entity;
     private String errorMessage;
+    private Response.Status status;
 
-    public TransferResponse(T entity, String errorMessage) {
+    public TransferResponse(T entity, String errorMessage, Response.Status status) {
         this.entity = entity;
         this.errorMessage = errorMessage;
+        this.status = status;
     }
 
     public Response getResponse() {
-        if (entity == null) {
+        if (errorMessage != null) {
             ErrorResponse resp = new ErrorResponse();
             resp.setErrorCode(errorMessage);
-            return Response.status(javax.ws.rs.core.Response.Status.NOT_FOUND).entity(resp).
+            return Response.status(status).entity(resp).
                     type(MediaType.APPLICATION_JSON).build();
         }
         return Response.ok(entity, MediaType.APPLICATION_JSON).build();

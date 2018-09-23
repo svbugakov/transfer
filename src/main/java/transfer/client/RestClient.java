@@ -3,6 +3,11 @@ package transfer.client;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.aopalliance.intercept.Invocation;
+import transfer.service.OperTransAccounts;
+
+import javax.ws.rs.core.MediaType;
+import java.math.BigDecimal;
 
 public class RestClient {
     private Client client;
@@ -15,7 +20,8 @@ public class RestClient {
 
         RestClient rest = new RestClient();
         //rest.getAccInfo(acc);
-        rest.getAccInfoAll();
+        //rest.getAccInfoAll();
+        rest.transferMoney();
     }
 
     private void getAccInfo(String acc) {
@@ -34,6 +40,21 @@ public class RestClient {
 
         ClientResponse response = webResource.accept("application/json")
                 .get(ClientResponse.class);
+
+        printResult(response);
+    }
+
+    private void transferMoney() {
+        OperTransAccounts oper = new OperTransAccounts();
+        oper.setFrom("40817000000000000001");
+        oper.setTo("40817000000000000003");
+        oper.setSum(new BigDecimal(100));
+
+        WebResource webResource = client
+                .resource("http://localhost:8084/rest/account/transfer");
+
+        ClientResponse response = webResource.accept("application/json")
+                .type("application/json").put(ClientResponse.class, oper);
 
         printResult(response);
     }

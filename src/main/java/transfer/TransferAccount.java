@@ -3,21 +3,16 @@ package transfer;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import transfer.db.DaoAccount;
+import transfer.model.Account;
 
 
-import javax.sql.DataSource;
 import javax.ws.rs.*;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 @Path("/account")
 public class TransferAccount {
-    private Acc acc;
+    private Account acc;
 
     private DaoAccount daoAccount;
 
@@ -27,7 +22,7 @@ public class TransferAccount {
 
 
     @Inject
-    public void setService(Acc acc) {
+    public void setService(Account acc) {
         this.acc = acc;
     }
 
@@ -54,12 +49,8 @@ public class TransferAccount {
     @GET
     @Path("/getAccs")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Account getAllAccounts() {
+    public List<Account> getAllAccounts() {
         System.out.println("Start get all accounts");
-        Account a = new Account();
-        a.setAcc("adsad0");
-
-        return a;
+        return daoAccount.getAccounts();
     }
 }

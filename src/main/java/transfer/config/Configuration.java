@@ -9,8 +9,7 @@ import com.google.inject.servlet.ServletModule;
 import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
-import transfer.Acc;
-import transfer.Account;
+import transfer.model.Account;
 import transfer.db.DaoAccount;
 import transfer.db.DaoAccountImpl;
 import transfer.db.H2DataSourceProvider;
@@ -27,7 +26,7 @@ public class Configuration extends GuiceServletContextListener {
             protected void configureServlets() {
 
                 bind(GuiceContainer.class);
-                bind(Acc.class).to(Account.class);
+                bind(Account.class);
                 bind(DaoAccount.class).to(DaoAccountImpl.class);
                 bindConstant().annotatedWith(Names.named("red")).to("Ivan good");
 

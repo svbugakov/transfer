@@ -1,8 +1,7 @@
 package transfer.db;
 
 import com.google.inject.Inject;
-import transfer.Acc;
-import transfer.Account;
+import transfer.model.Account;
 
 import javax.sql.DataSource;
 import java.math.BigDecimal;
@@ -42,8 +41,8 @@ public class DaoAccountImpl implements DaoAccount {
     }
 
     @Override
-    public List<Acc> getAccounts() {
-        List<Acc> accounts = new ArrayList<>();
+    public List<Account> getAccounts() {
+        List<Account> accounts = new ArrayList<>();
         final String SQL = "select a.acc, " +
                 "a.bal " +
                 "from account a";
@@ -52,7 +51,7 @@ public class DaoAccountImpl implements DaoAccount {
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(SQL)) {
             while (rs.next()) {
-                Acc account = new Account();
+                Account account = new Account();
                 account.setAcc(rs.getString(1));
                 account.setBalance(rs.getBigDecimal(2));
                 accounts.add(account);

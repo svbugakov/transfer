@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Path("/account")
-public class TransferAccount {
+public class TransferAccountService {
     private DaoAccount daoAccount;
 
     @Inject

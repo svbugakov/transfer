@@ -111,7 +111,7 @@ public class DaoAccountImpl implements DaoAccount {
                         rs.updateBigDecimal(2, bal.add(sum.negate()));
                         rs.updateRow();
                     } else {
-                        throw new NotCorrectSumTransaction(String.format("The balance %1$s of the account is less than the transfer amount", from));
+                        throw new NotCorrectSumTransaction(String.format("The balance %1$s of the account is less than the transfer amount", acc));
                     }
                 } else {
                     rs.updateBigDecimal(2, bal.add(sum));

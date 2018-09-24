@@ -24,7 +24,6 @@ public class DaoAccountImpl implements DaoAccount {
         this.dataSource = dt;
     }
 
-    //COnnection pull!!!!!!!!!!!!
     @Override
     public BigDecimal getBalance() {
         BigDecimal balance = null;

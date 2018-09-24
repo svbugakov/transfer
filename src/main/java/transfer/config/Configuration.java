@@ -28,18 +28,15 @@ public class Configuration extends GuiceServletContextListener {
                 bind(GuiceContainer.class);
                 bind(Account.class);
                 bind(DaoAccount.class).to(DaoAccountImpl.class);
-                bindConstant().annotatedWith(Names.named("red")).to("Ivan good");
 
                 Names.bindProperties(binder(), loadProperties());
 
                 bind(DataSource.class).toProvider(H2DataSourceProvider.class)
                         .in(Scopes.SINGLETON);
 
-                System.out.println("Start guice....");
                 ResourceConfig rc = new PackagesResourceConfig("transfer");
                 for (Class<?> resource : rc.getClasses()) {
                     bind(resource);
-                    System.out.println("dsd" + resource.getCanonicalName());
                 }
 
                 serve("/rest/*").with(GuiceContainer.class);

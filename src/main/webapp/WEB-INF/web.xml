@@ -11,7 +11,7 @@
 
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>transfer</param-value>
+            <param-value>transfer.service</param-value>
         </init-param>
 
         <!-- the following is only needed if you want to use the built-in support

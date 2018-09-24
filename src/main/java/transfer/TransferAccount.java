@@ -71,7 +71,13 @@ public class TransferAccount {
             return new TransferResponse<Account>(accountFrom, "account To no found in base",
                     Status.NOT_FOUND).getResponse();
         }
-        Result result = daoAccount.transferSum(accountFrom , accountTo, sum);
-        return Response.ok(result.getMessage(), MediaType.APPLICATION_JSON).build();
+        if (sum.compareTo(BigDecimal.ZERO) <= 0) {
+            return new TransferResponse<BigDecimal>(sum, "sum must be > 0",
+                    Status.BAD_REQUEST).getResponse();
+        }
+
+        Result result = daoAccount.transferSum(accountFrom.getAcc(), accountTo.getAcc(), sum);
+        return Response.status(result.getStatus()).entity(result.getMessage()).
+                type(MediaType.APPLICATION_JSON).build();
     }
 }

@@ -50,7 +50,7 @@ public class Configuration extends GuiceServletContextListener {
     private Properties loadProperties() {
         Properties prop = new Properties();
         prop.setProperty("url", "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;" +
-                "INIT=RUNSCRIPT FROM 'create.sql'");
+                "INIT=RUNSCRIPT FROM 'create.sql';LOCK_TIMEOUT=200000");
         prop.setProperty("username", "sa");
         prop.setProperty("password", "");
         return prop;

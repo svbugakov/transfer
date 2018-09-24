@@ -16,10 +16,8 @@ public class TransferResponse<T> {
 
     public Response getResponse() {
         if (errorMessage != null) {
-            ErrorResponse resp = new ErrorResponse();
-            resp.setErrorCode(errorMessage);
-            return Response.status(status).entity(resp).
-                    type(MediaType.APPLICATION_JSON).build();
+            return Response.status(status).entity(errorMessage).
+                    type(MediaType.TEXT_PLAIN).build();
         }
         return Response.ok(entity, MediaType.APPLICATION_JSON).build();
     }

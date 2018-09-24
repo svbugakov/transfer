@@ -1,4 +1,4 @@
-create table if not exists account(acc varchar(20), bal DECIMAL(20, 2));
+create table if not exists account(acc varchar(20), bal DECIMAL(20, 2), PRIMARY KEY(ACC));
 insert into account(acc, bal) select * from (
 select '40817000000000000001',198
 union

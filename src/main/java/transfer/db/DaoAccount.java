@@ -14,5 +14,5 @@ public interface DaoAccount {
 
     Account getAccount(String acc);
 
-    Result transferSum(Account from, Account to, BigDecimal sum);
+    Result transferSum(String from, String to, BigDecimal sum);
 }

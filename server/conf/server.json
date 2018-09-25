@@ -1,0 +1,17 @@
+{
+    "productName": "transfer",
+    "servletContainer": {
+        "id": "jetty9",
+        "version": "9.2.22.v20170606",
+        "description": "Jetty 9.2.22.v20170606"
+    },
+    "serverConfig": {
+        "httpPort": 8084
+    },
+    "webApps": [
+        {
+            "contextPath": "/",
+            "resourceBase": "webapps/transfer.war"
+        }
+    ]
+}

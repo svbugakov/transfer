@@ -27,8 +27,8 @@ public class H2DataSourceProvider implements Provider<DataSource> {
     @Override
     public DataSource get() {
         final JdbcDataSource dataSource = new JdbcDataSource();
-        logger.debug(String.format("create datasource" +
-                "url=%1$s, username=%2$s, password=%3$s", url, username, password));
+        logger.debug("create datasource" +
+                "url={}, username={}", url, username);
         dataSource.setURL(url);
         dataSource.setUser(username);
         dataSource.setPassword(password);

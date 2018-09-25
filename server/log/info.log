@@ -1,0 +1,28 @@
+2018-09-25 20:23:39,400 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @1547ms
+2018-09-25 20:23:40,099 INFO  [main] org.eclipse.jetty.server.Server - jetty-9.2.22.v20170606
+2018-09-25 20:23:52,034 INFO  [main] org.eclipse.jetty.server.handler.ContextHandler - Started o.a.g.JettyWebAppContext@22f59fa{/,file:/C:/javadev/javadev/transfer/build/output/transfer/webapps-exploded/webapp/,AVAILABLE}{C:\javadev\javadev\transfer\build\output\transfer\webapps\transfer.war}
+2018-09-25 20:23:52,167 INFO  [main] org.eclipse.jetty.server.ServerConnector - Started ServerConnector@5524b72f{HTTP/1.1}{0.0.0.0:8084}
+2018-09-25 20:23:52,168 INFO  [main] org.eclipse.jetty.server.Server - Started @14319ms
+2018-09-25 20:23:52,176 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo - Jetty 9.2.22.v20170606 started and listening on port 8084
+2018-09-25 20:23:52,233 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo -  runs at:
+2018-09-25 20:23:52,235 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo -   http://localhost:8084/
+2018-09-25 20:28:13,645 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @2414ms
+2018-09-25 20:28:14,384 INFO  [main] org.eclipse.jetty.server.Server - jetty-9.2.22.v20170606
+2018-09-25 20:28:24,552 INFO  [main] org.eclipse.jetty.server.handler.ContextHandler - Started o.a.g.JettyWebAppContext@22f59fa{/,file:/C:/javadev/javadev/transfer/server/webapps-exploded/webapp/,AVAILABLE}{C:\javadev\javadev\transfer\server\webapps\transfer.war}
+2018-09-25 20:28:24,573 INFO  [main] org.eclipse.jetty.server.ServerConnector - Started ServerConnector@5524b72f{HTTP/1.1}{0.0.0.0:8084}
+2018-09-25 20:28:24,573 INFO  [main] org.eclipse.jetty.server.Server - Started @13361ms
+2018-09-25 20:28:24,581 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo - Jetty 9.2.22.v20170606 started and listening on port 8084
+2018-09-25 20:28:24,686 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo -  runs at:
+2018-09-25 20:28:24,687 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo -   http://localhost:8084/
+2018-09-25 20:29:00,695 INFO  [main] org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@5524b72f{HTTP/1.1}{0.0.0.0:8084}
+2018-09-25 20:29:00,739 INFO  [main] org.eclipse.jetty.server.handler.ContextHandler - Stopped o.a.g.JettyWebAppContext@22f59fa{/,file:/C:/javadev/javadev/transfer/server/webapps-exploded/webapp/,UNAVAILABLE}{C:\javadev\javadev\transfer\server\webapps\transfer.war}
+2018-09-25 20:38:19,421 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @1264ms
+2018-09-25 20:38:20,124 INFO  [main] org.eclipse.jetty.server.Server - jetty-9.2.22.v20170606
+2018-09-25 20:38:29,844 INFO  [main] org.eclipse.jetty.server.handler.ContextHandler - Started o.a.g.JettyWebAppContext@22f59fa{/,file:/C:/javadev/javadev/transfer/server/webapps-exploded/webapp/,AVAILABLE}{C:\javadev\javadev\transfer\server\webapps\transfer.war}
+2018-09-25 20:38:29,866 INFO  [main] org.eclipse.jetty.server.ServerConnector - Started ServerConnector@5524b72f{HTTP/1.1}{0.0.0.0:8084}
+2018-09-25 20:38:29,868 INFO  [main] org.eclipse.jetty.server.Server - Started @11721ms
+2018-09-25 20:38:29,877 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo - Jetty 9.2.22.v20170606 started and listening on port 8084
+2018-09-25 20:38:29,959 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo -  runs at:
+2018-09-25 20:38:29,962 INFO  [main] org.akhikhl.gretty.JettyServerStartInfo -   http://localhost:8084/
+2018-09-25 20:39:26,610 INFO  [main] org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@5524b72f{HTTP/1.1}{0.0.0.0:8084}
+2018-09-25 20:39:26,621 INFO  [main] org.eclipse.jetty.server.handler.ContextHandler - Stopped o.a.g.JettyWebAppContext@22f59fa{/,file:/C:/javadev/javadev/transfer/server/webapps-exploded/webapp/,UNAVAILABLE}{C:\javadev\javadev\transfer\server\webapps\transfer.war}

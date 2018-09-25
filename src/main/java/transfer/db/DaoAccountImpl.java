@@ -53,7 +53,7 @@ public class DaoAccountImpl implements DaoAccount {
 
     @Override
     public Account getAccount(String acc) {
-        logger.debug(String.format("trying to get account = %1$s", acc));
+        logger.debug("trying to get account = {}", acc);
         Account account = null;
         final String SQL = "select a.acc, " +
                 "a.bal " +
@@ -69,14 +69,14 @@ public class DaoAccountImpl implements DaoAccount {
                     account.setAcc(rs.getString(1));
                     account.setBalance(rs.getBigDecimal(2));
                 } else {
-                    logger.debug(String.format("No found account = %1$s", acc));
+                    logger.debug("No found account = {}", acc);
                     return null;
                 }
             }
         } catch (Exception e) {
-            logger.error(String.format("Error trying to get account = %1$s", acc), e);
+            logger.error("Error trying to get account = {}", acc, e);
         }
-        logger.debug(String.format("finish get account = %1$s", acc));
+        logger.debug("finish get account = {}", acc);
         return account;
     }
 
@@ -117,8 +117,8 @@ public class DaoAccountImpl implements DaoAccount {
         final String SQL_SEL = "select acc, bal "
                 + "from account where acc = ? for update";
         Result result = null;
-        logger.debug(String.format("trying transfer money from %1$s " +
-                "to %2$s", from, to));
+        logger.debug("trying transfer money from {} " +
+                "to {}", from, to);
         try (Connection con = dataSource.getConnection()) {
             con.setAutoCommit(false);
             con.setTransactionIsolation(TRANSACTION_READ_COMMITTED);
@@ -151,8 +151,8 @@ public class DaoAccountImpl implements DaoAccount {
             logger.error("Error for transfer", e);
             result = new Result(e.getMessage(), Status.INTERNAL_SERVER_ERROR);
         }
-        logger.debug(String.format("transfer money from %1$s " +
-                "to %2$s finish", from, to));
+        logger.debug("transfer money from {} " +
+                "to {} finish", from, to);
         return result;
     }
 }

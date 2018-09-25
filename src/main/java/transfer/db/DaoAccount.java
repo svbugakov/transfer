@@ -7,9 +7,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface DaoAccount {
-    //Ecxeption sss
-    BigDecimal getBalance();
-
     List<Account> getAccounts();
 
     Account getAccount(String acc);

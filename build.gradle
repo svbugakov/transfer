@@ -18,19 +18,22 @@ dependencies {
     compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.19.4'
     compile "com.sun.jersey:jersey-client:1.19.4"
     compile group: 'com.h2database', name: 'h2', version: '1.4.191'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     testCompile 'junit:junit:4.12'
 }
 
 gretty {
     httpPort = 8084
     contextPath = '/'
+    consoleLogEnabled = true
+    fileLogEnabled = true
+    logbackConfigFile = "logback.xml"
 }
-
-
 
 jar {
     baseName = 'transfer'
     version = '1.0.0'
-
 }
 

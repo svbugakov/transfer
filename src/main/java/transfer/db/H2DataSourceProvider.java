@@ -4,6 +4,8 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.name.Named;
 import org.h2.jdbcx.JdbcDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 
@@ -11,6 +13,7 @@ public class H2DataSourceProvider implements Provider<DataSource> {
     private final String url;
     private final String username;
     private final String password;
+    private Logger logger = LoggerFactory.getLogger(H2DataSourceProvider.class);
 
     @Inject
     public H2DataSourceProvider(@Named("url") final String url,
@@ -24,7 +27,8 @@ public class H2DataSourceProvider implements Provider<DataSource> {
     @Override
     public DataSource get() {
         final JdbcDataSource dataSource = new JdbcDataSource();
-        System.out.println("saaaaddd:"+url);
+        logger.debug(String.format("create datasource" +
+                "url=%1$s, username=%2$s, password=%3$s", url, username, password));
         dataSource.setURL(url);
         dataSource.setUser(username);
         dataSource.setPassword(password);

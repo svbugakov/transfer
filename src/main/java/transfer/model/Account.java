@@ -1,7 +1,5 @@
 package transfer.model;
 
-import com.google.inject.Singleton;
-
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
@@ -9,10 +7,6 @@ import java.math.BigDecimal;
 public class Account {
     private String acc;
     private BigDecimal balance;
-
-    public String say() {
-        return "asasdasdsad";
-    }
 
     public String getAcc() {
         return acc;

@@ -1,11 +1,13 @@
 package transfer.model;
 
 import javax.ws.rs.core.Response.Status;
+import java.util.List;
 
 public class Result {
-
     private String message;
     private Status status;
+    private Account account;
+    private List<Account> accounts;
 
     public Result() {
     }
@@ -29,5 +31,21 @@ public class Result {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 }

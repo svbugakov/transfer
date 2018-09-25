@@ -1,7 +1,10 @@
 package transfer.service;
 
 import com.google.inject.Inject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import transfer.db.DaoAccount;
+import transfer.db.DaoAccountImpl;
 import transfer.model.Account;
 import transfer.model.Result;
 
@@ -26,7 +29,6 @@ public class TransferAccountService {
     @Path("/getAccs")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Account> getAllAccounts() {
-        System.out.println("Start get all accounts");
         return daoAccount.getAccounts();
     }
 
@@ -34,7 +36,6 @@ public class TransferAccountService {
     @Path("/getAcc/{acc}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAccount(@PathParam("acc") String acc) {
-        System.out.println("Start get account");
         Account account = daoAccount.getAccount(acc);
         String messageerror = null;
         Status status = Status.OK;
@@ -53,7 +54,6 @@ public class TransferAccountService {
     public Response transferSumBetweenAccount(@FormParam("from") String from,
                                               @FormParam("to") String to,
                                               @FormParam("sum") BigDecimal sum) {
-        System.out.println("Start upd account from = " + from + " on sum = " + sum);
         Account accountFrom = daoAccount.getAccount(from);
         Account accountTo = daoAccount.getAccount(to);
 

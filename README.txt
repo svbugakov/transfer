@@ -29,8 +29,7 @@ GUIDE ON COMMANDS
 client getaccs - get all accounts and its balance
 client getacc [ACC] - get the account [ACC] and it balance
 client transfer [ACC_FROM] [ACC_TO] [SUM] - transfer [SUM] money between accounts [ACC_FROM] and [ACC_TO]
-(I did not create the creation functional, and in theory
-account closure (since the account can not be deleted), sorry I did not have enough time)
+
 ---------------------------------------------------------------------------------------------
 GIIDE DEPLOY
 --CLIENT
